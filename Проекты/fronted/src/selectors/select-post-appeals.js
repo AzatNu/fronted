@@ -1,0 +1,1 @@
+export const selectPostAppaels = (state) => state.postAppealsReducer

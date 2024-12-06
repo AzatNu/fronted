@@ -1,0 +1,1 @@
+export const selectAuthSuccses = (state) => state.authUserSuccsesReducer;
