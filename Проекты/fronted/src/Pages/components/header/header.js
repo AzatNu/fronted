@@ -7,6 +7,7 @@ export const Header = ({ title, buttonName, link, userMail }) => {
 
   const handleLogout = () => {
     dispatch({ type: "GET_AUTH_USER__EMAIL", payload: [] });
+    dispatch({ type: "AUTH_USER__SUCCESS", payload: [] });
   };
 
   return (
