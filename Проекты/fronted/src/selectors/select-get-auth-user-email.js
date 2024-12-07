@@ -1,1 +1,1 @@
-export const selectGetAuthEmail = (state) => state.getAuthUserEmailReducer;
+export const selectGetAuthEmail = (state) => state.getAuthUserEmail;

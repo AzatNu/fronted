@@ -2,7 +2,7 @@ const initialState = {
   authUserFailed: [],
 };
 
-export const authUserFailedReducer = (state = initialState, action) => {
+export const authUserFailed = (state = initialState, action) => {
   switch (action.type) {
     case "AUTH_USER__FAILED":
       return {

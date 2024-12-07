@@ -1,15 +1,15 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-import { getAppealsReducer, postAppealsReducer, 
-  authUserFailedReducer,getAuthUserEmailReducer, authUserSuccsesReducer } from "./reducers";
+import { getAppealsSucsses, postAppeals, 
+  authUserFailed,  getAuthUserEmail,  authUserSuccses, authUserFlag} from "./reducers";
 import { thunk } from "redux-thunk";
 
 const reducers = combineReducers({
-  getAppealsReducer: getAppealsReducer,
-  postAppealsReducer: postAppealsReducer,
-  authUserFailedReducer: authUserFailedReducer,
-  getAuthUserEmailReducer: getAuthUserEmailReducer,
-  authUserSuccsesReducer: authUserSuccsesReducer
-
+  getAppealsSucsses: getAppealsSucsses,
+  postAppeals: postAppeals,
+  authUserFailed: authUserFailed,
+  getAuthUserEmail: getAuthUserEmail,
+  authUserSuccses: authUserSuccses,
+  authUserFlag: authUserFlag
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

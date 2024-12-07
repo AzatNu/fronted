@@ -2,7 +2,7 @@ const initialState = {
     getAuthUserEmail: [],
 }
 
-export const getAuthUserEmailReducer = (state = initialState, action) => {
+export const getAuthUserEmail = (state = initialState, action ) => {
     switch (action.type) {
         case "GET_AUTH_USER__EMAIL":
             return {

@@ -7,14 +7,15 @@ import { selectAuthFailed, selectGetAuthEmail, selectAuthSuccses } from "../../s
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const serverError = useSelector(selectAuthFailed);
   const userEmail = useSelector(selectGetAuthEmail);
   const authSuccses = useSelector(selectAuthSuccses);
-  const navigate = useNavigate();
+  
+
   const {
     register,
-    reset,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
@@ -23,33 +24,36 @@ export const LoginPage = () => {
       password: "",
     },
     resolver: yupResolver(validationAuthSchema),
+    
   });
-  console.log(userEmail.getAuthUserEmail.length );
+
+
 const onSubmit = (data) => {
   dispatch(requestAuthUser(data));
+
 };
+console.log(userEmail?.getAuthUserEmail );
   return (
     <div className={loginPageStyles.container}>
-      <Header 
-        title="Вход" 
-        buttonName="Вернутся на главную" 
-        link=""  
-        logoutButtonName="Выход" 
-        userMail={userEmail?.getAuthUserEmail}
+          <Header 
+        title="Создать заявку" 
+        buttonName="Вход" 
+        link="login"  
+        userMail={userEmail}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <h3>Введите ваш email</h3>
-        <input type="text" placeholder="Email" {...register("email")} />
+        <input type="text" placeholder="fake@mail.com" {...register("email")} />
         {errors.email && <ErrorSpan>{errors.email?.message}</ErrorSpan>}
         <h3>Введите ваш пароль</h3>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="123456"
           {...register("password")}
         />
         {errors.password && <ErrorSpan>{errors.password?.message}</ErrorSpan>}
         {serverError && <ErrorSpan>{serverError.authUserFailed?.message   }</ErrorSpan>}
-        {authSuccses && <SuccsesSpan>{authSuccses.authUserSuccses?.message }{userEmail?.getAuthUserEmail}</SuccsesSpan>}
+        {authSuccses && <SuccsesSpan>{authSuccses.authUserSuccses?.message } {userEmail?.getAuthUserEmail}</SuccsesSpan>}
         <Button type="submit" disabled={!isValid || serverError || userEmail} >
           Войти
         </Button>

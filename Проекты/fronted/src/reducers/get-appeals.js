@@ -3,7 +3,7 @@ const initialState = {
   appeals: [],
 };
 
-export const getAppealsReducer = (state = initialState, action) => {
+export const getAppealsSucsses = (state = initialState, action) => {
   switch (action.type) {
     case "GET_APPEALS__SUCCESS":
       return { ...state, appeals: action.payload };

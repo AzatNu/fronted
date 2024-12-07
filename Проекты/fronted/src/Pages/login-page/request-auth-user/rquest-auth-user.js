@@ -6,14 +6,14 @@ export const requestAuthUser = (data) => async (dispatch) => {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    console.log(result);
+    console.log(result.email  );
     if (!response.ok) {
       dispatch({ type: "AUTH_USER__FAILED", payload: result });
     } else {
+      dispatch({ type: "AUTH_USER__FLAG", payload: "1" });
       dispatch({ type: "AUTH_USER__FAILED", payload: [] });
       dispatch({ type: "AUTH_USER__SUCCESS", payload: result });
       dispatch({ type: "GET_AUTH_USER__EMAIL", payload: result.email });
-      return;
     }
   } catch (error) {
     dispatch({ type: "AUTH_USER__FAILED", payload: error });

@@ -1,2 +1,2 @@
-export const selectGetAppeals = (state) => state.getAppealsReducer;
+export const selectGetAppeals = (state) => state.getAppealsSucsses;
 

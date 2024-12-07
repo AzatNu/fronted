@@ -1,0 +1,1 @@
+export const selectAuthUserFlag = (state) => state.authUserFlag;

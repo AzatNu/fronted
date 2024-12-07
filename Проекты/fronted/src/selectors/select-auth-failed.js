@@ -1,1 +1,1 @@
- export const selectAuthFailed = (state) => state.authUserFailedReducer;
+ export const selectAuthFailed = (state) => state.authUserFailed;
